@@ -1,9 +1,10 @@
+import Navbar from './components/Navbar'
 import BookContextProvider from './context/BookContext'
 
 const App = () => {
   return (
     <BookContextProvider>
-      <div className='App'>New project!</div>
+      <Navbar />
     </BookContextProvider>
   )
 }
