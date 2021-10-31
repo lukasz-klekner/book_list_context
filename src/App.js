@@ -1,5 +1,11 @@
+import BookContextProvider from './context/BookContext'
+
 const App = () => {
-  return <div className='App'>New project!</div>
+  return (
+    <BookContextProvider>
+      <div className='App'>New project!</div>
+    </BookContextProvider>
+  )
 }
 
 export default App
