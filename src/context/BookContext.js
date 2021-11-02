@@ -1,5 +1,5 @@
-import { createContext, useState } from 'react'
-import { v4 } from 'uuid'
+import { createContext, useReducer } from 'react'
+import bookReducer from '../reducer/bookReducer'
 
 export const BookContext = createContext(null)
 
@@ -9,16 +9,10 @@ const initialState = [
 ]
 
 const BookContextProvider = ({ children }) => {
-  const [books, setBooks] = useState(initialState)
-
-  const addBook = (title, author) =>
-    setBooks([...books, { title, author, id: v4() }])
-
-  const removeBook = (id) =>
-    setBooks([...books].filter((book) => book.id !== id))
+  const [books, dispatch] = useReducer(bookReducer, initialState)
 
   return (
-    <BookContext.Provider value={{ books, addBook, removeBook }}>
+    <BookContext.Provider value={{ books, dispatch }}>
       {children}
     </BookContext.Provider>
   )
