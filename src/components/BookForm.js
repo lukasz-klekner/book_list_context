@@ -1,12 +1,13 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
+
 import { ADD_BOOK } from '../constant'
-import { BookContext } from '../context/BookContext'
+import useBookContext from '../hooks/useBookContext'
 
 const BookForm = () => {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
 
-  const { dispatch } = useContext(BookContext)
+  const { dispatch } = useBookContext()
 
   const handleSubmit = (event) => {
     event.preventDefault()

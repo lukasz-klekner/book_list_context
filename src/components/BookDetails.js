@@ -1,9 +1,8 @@
-import { useContext } from 'react'
 import { REMOVE_BOOK } from '../constant'
-import { BookContext } from '../context/BookContext'
+import useBookContext from '../hooks/useBookContext'
 
 const BookDetails = ({ book: { title, author, id } }) => {
-  const { dispatch } = useContext(BookContext)
+  const { dispatch } = useBookContext()
 
   return (
     <li onClick={() => dispatch({ type: REMOVE_BOOK, id })}>

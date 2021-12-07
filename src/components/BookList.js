@@ -1,9 +1,8 @@
-import { useContext } from 'react'
-import { BookContext } from '../context/BookContext'
 import BookDetails from './BookDetails'
+import useBookContext from '../hooks/useBookContext'
 
 const BookList = () => {
-  const { books } = useContext(BookContext)
+  const { books } = useBookContext()
 
   return books.length ? (
     <div className='book-list'>
